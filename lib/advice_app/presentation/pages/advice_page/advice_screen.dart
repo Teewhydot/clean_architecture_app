@@ -53,9 +53,14 @@ class AdviceScreen extends StatelessWidget {
                 ),
               );
             } else if (state is AdviceStateError) {
-              return const Text(
-                "Error something gone wrong",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              return Center(
+                child: Text(
+                  state.errorMessage,
+                  style: const TextStyle(
+                      color: Colors.redAccent,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
               );
             } else if (state is AdviceStateInitial) {
               return Column(

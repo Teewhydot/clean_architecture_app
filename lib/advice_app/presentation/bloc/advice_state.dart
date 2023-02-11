@@ -10,7 +10,7 @@ class AdviceStateInitial extends AdviceState {}
 class AdviceStateLoading extends AdviceState {}
 
 class AdviceStateLoaded extends AdviceState {
-  final Advice advice;
+  final AdviceEntity advice;
   AdviceStateLoaded({required this.advice});
   @override
   List<Object?> get props => [advice];

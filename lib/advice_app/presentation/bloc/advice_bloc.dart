@@ -1,6 +1,7 @@
 import 'package:clean_architecture_app/advice_app/domain/entities/advice_entity.dart';
+import 'package:clean_architecture_app/advice_app/domain/failures/map_failure.dart'
+    as fail;
 import 'package:clean_architecture_app/advice_app/domain/use_cases/advice_use_case.dart';
-import 'package:clean_architecture_app/map_failure.dart' as fail;
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +21,7 @@ class AdviceBloc extends Bloc<AdviceEvent, AdviceState> {
               errorMessage: fail.mapFailureToMessage(failure))),
           (advice) => emit(AdviceStateLoaded(advice: advice)));
       // update state back to initial after 5 seconds
-      await Future.delayed(const Duration(seconds: 5), () {
+      await Future.delayed(const Duration(seconds: 4), () {
         emit(AdviceStateInitial());
       });
     });

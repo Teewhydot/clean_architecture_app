@@ -1,5 +1,5 @@
 import 'package:clean_architecture_app/advice_app/presentation/bloc/advice_bloc.dart';
-import 'package:clean_architecture_app/advice_app/presentation/widget/custom_button.dart';
+import 'package:clean_architecture_app/advice_app/presentation/widget/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,27 +30,24 @@ class AdviceScreen extends StatelessWidget {
             if (state is AdviceStateLoading) {
               return const Center(child: CircularProgressIndicator());
             } else if (state is AdviceStateLoaded) {
-              return Expanded(
-                flex: 9,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Text(
-                        state.advice.advice,
-                        style: const TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w500),
-                      ),
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text(
+                      state.advice.advice,
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w500),
                     ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    const Text(
-                      'This advice will be removed after 3 seconds',
-                      style: TextStyle(fontSize: 10),
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const Text(
+                    'This advice will be removed after 4 seconds',
+                    style: TextStyle(fontSize: 10),
+                  ),
+                ],
               );
             } else if (state is AdviceStateError) {
               return Center(
@@ -77,8 +74,9 @@ class AdviceScreen extends StatelessWidget {
                   Expanded(
                       flex: 1,
                       child: Center(
-                        child: CustomButton(
-                          onTapped: () => blocProvider.add(AdviceRequested()),
+                        child: AnimatedButton(
+                          buttonText: 'Get Advice',
+                          onTap: () => blocProvider.add(AdviceRequested()),
                         ),
                       )),
                 ],

@@ -7,7 +7,6 @@ import 'package:dartz/dartz.dart';
 class AdviceUsecase {
   final AdviceRepo adviceRepo = AdviceRepoImplementation();
   Future<Either<Failure, AdviceEntity>> getAdvice() async {
-    await Future.delayed(const Duration(seconds: 1), () {});
     return adviceRepo.getAdviceFromDataSource();
   }
 }

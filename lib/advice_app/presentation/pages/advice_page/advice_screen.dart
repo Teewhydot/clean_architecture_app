@@ -1,3 +1,4 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:clean_architecture_app/advice_app/presentation/bloc/advice_bloc.dart';
 import 'package:clean_architecture_app/advice_app/presentation/widget/animated_button.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +21,7 @@ class AdviceScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final blocProvider = BlocProvider.of<AdviceBloc>(context, listen: false);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Advice Screen"),
-      ),
+      backgroundColor: Colors.grey[600],
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: BlocBuilder<AdviceBloc, AdviceState>(
@@ -32,6 +31,7 @@ class AdviceScreen extends StatelessWidget {
             } else if (state is AdviceStateLoaded) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Center(
                     child: Text(
@@ -41,12 +41,18 @@ class AdviceScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 50,
                   ),
-                  const Text(
-                    'This advice will be removed after 4 seconds',
-                    style: TextStyle(fontSize: 10),
-                  ),
+                  CircularCountDownTimer(
+                      width: 30,
+                      height: 30,
+                      isReverse: true,
+                      textStyle: const TextStyle(
+                        fontSize: 20,
+                      ),
+                      duration: 4,
+                      fillColor: Colors.grey[900]!,
+                      ringColor: Colors.transparent),
                 ],
               );
             } else if (state is AdviceStateError) {

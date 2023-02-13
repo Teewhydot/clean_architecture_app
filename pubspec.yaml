@@ -17,6 +17,7 @@ dependencies:
   equatable: ^2.0.5
   dartz: ^0.10.1
   http: ^0.13.5
+  circular_countdown_timer: ^0.2.3
 
 dev_dependencies:
   flutter_test:

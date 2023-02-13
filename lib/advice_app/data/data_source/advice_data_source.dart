@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:clean_architecture_app/advice_app/data/custom_exceptions/custom_exceptions.dart';
 import 'package:clean_architecture_app/advice_app/data/model/advice_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -17,7 +18,7 @@ class AdviceDataSourceImplementation implements AdviceDataSource {
       final decodedResult = jsonDecode(response.body);
       return AdviceModel.fromJson(decodedResult);
     } else {
-      throw Exception('Error');
+      throw ServerException();
     }
   }
 }

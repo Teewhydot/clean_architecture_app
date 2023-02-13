@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  circular_countdown_timer:
+    dependency: "direct main"
+    description:
+      name: circular_countdown_timer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.3"
   clock:
     dependency: transitive
     description:
@@ -228,4 +235,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.0-255.2.beta <3.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=1.17.0"
